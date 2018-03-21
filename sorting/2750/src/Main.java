@@ -1,8 +1,8 @@
 import java.util.Scanner;
-public class Sorting {
+public class Main {
 
 	public static void main(String[] args) {
-		Sorting sorting = new Sorting();
+		Main sorting = new Main();
 		Scanner sc = new Scanner(System.in);
 		
 		int number_of = sc.nextInt();
