@@ -61,7 +61,7 @@ public class 1954{
 	}
 	
 	public static void main(String[] args) {
-		new Solution().snailNum();
+		new 1954().snailNum();
 	}
 
 }
