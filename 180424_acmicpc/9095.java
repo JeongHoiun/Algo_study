@@ -1,30 +1,32 @@
-// acmicpc.net/problem/11727
+//https://www.acmicpc.net/problem/9095
 import java.util.Scanner;
-
 public class Main {
-	int dp[];
-	void Tiling() {
+	int dp[]; 
+	void OneTwoThreeAdd() {
 		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		dp = new int[n+1];
-		dp[1] = 1;
-		System.out.println(nTile(n)%10007);
+		int testcase = sc.nextInt();
+		for(int t=1;t<=testcase;t++) {
+			int n=sc.nextInt();
+			dp = new int[n+1];
+			System.out.println(AddDp(n));
+		}
+		
 	}
 	
-	int nTile(int n) {
-		//  X(n) = 2X(n-1)+1 (n is even number)
-		//  X(n) = 2X(n-1)-1 (n is odd number)
-		if(dp[n] > 0) 
-			return dp[n];
-		else if(n%2==0)
-			dp[n] = nTile(n-1)*2+1;
-		else if(n%2==1)
-			dp[n] = nTile(n-1)*2-1;
-		return dp[n]%10007;
+	int AddDp(int n) {
+		//X(n) = X(n-1)+X(n-2)+X(n-3)
+		if(n==1)
+			return 1;
+		else if(n==2)
+			return 2;
+		else if(n==3)
+			return 4;
+		else
+			dp[n] = AddDp(n-1)+AddDp(n-2)+AddDp(n-3);
+		return dp[n];
 	}
-	
 	public static void main(String[] args) {
-		new Main().Tiling();
+		new Main().OneTwoThreeAdd();
 	}
 
 }
