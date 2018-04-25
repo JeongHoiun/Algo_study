@@ -1,3 +1,5 @@
+// https://www.acmicpc.net/problem/10451
+
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;
@@ -29,7 +31,7 @@ public class Main {
 		boolean isVisited[] = new boolean[n+1];
 		Stack<Integer> s = new Stack<Integer>();
 		//DFS의 경우 Stack을 이용하여 탐색할 수 있다.
-		for(int i=1;i<n;i++) {
+		for(int i=1;i<=n;i++) {
 			if(!isVisited[i]) {
 				s.push(perm[0][i]);
 				while(!s.isEmpty()) {
