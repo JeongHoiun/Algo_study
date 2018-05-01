@@ -1,5 +1,6 @@
 import java.util.Scanner;
-
+//https://www.acmicpc.net/problem/11662
+//오차를 어떻게 줄일지 모르겠음
 public class Main {
 	void MinhoNKangho() {
 		Scanner sc= new Scanner(System.in);
