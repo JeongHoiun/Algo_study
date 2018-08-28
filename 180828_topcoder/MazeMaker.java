@@ -66,11 +66,9 @@ Returns: -1
 import java.util.Queue;
 import java.util.LinkedList;
 
-//moving이 x{1,0,0,-1}, y{0,1,-1,0} 대신  moveRow, moveCol
 public class MazeMaker {
 	public int longestPath(String[] maze, int startRow, int startCol, int[] moveRow, int[] moveCol) {
-		//DFS
-		boolean isVisited[][] = new boolean[maze[0].length()][maze.length];
+		//BFS로 하면 최소 이동 경로를 구할 수 있음
 
 		Queue<Integer> stX = new LinkedList<Integer>();
 		Queue<Integer> stY = new LinkedList<Integer>();
@@ -82,7 +80,7 @@ public class MazeMaker {
 		int max = 0;
 
 		int board[][] = new int[maze[0].length()][maze.length];
-
+		// 길마다의 이동 횟수 저장
 		while(!stX.isEmpty()&&!stY.isEmpty()) {
 			int x = stX.poll();
 			int y = stY.poll();
@@ -95,6 +93,7 @@ public class MazeMaker {
 				int tx = x+moveCol[i];
 				int ty = y+moveRow[i];
 				if(tx>=0&&ty>=0&&tx<maze[0].length()&&ty<maze.length&&board[tx][ty]==0&&maze[ty].charAt(tx)=='.') {
+					//범위 내의 이동 가능한 곳 중 방문하지 않은 곳.
 					stX.add(tx);
 					stY.add(ty);
 					stCnt.add(cnt);
