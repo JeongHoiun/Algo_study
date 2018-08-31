@@ -22,7 +22,6 @@ Returns : 2926
 #include<stdio.h>
 #include<stdlib.h>
 
-int* dp;
 
 //Prototype
 int maxDonations(int donations[], int count);
@@ -30,15 +29,18 @@ int Max(int a, int b);
 
 //Main
 int main() {
-	int donations[6] = { 10, 3, 2, 5, 7, 8 };
+	int donations[] = { 94, 40, 49, 65, 21, 21, 106, 80, 92, 81, 679, 4, 61, 6, 237, 12,
+		72, 74, 29, 95, 265, 35, 47, 1, 61, 397, 52, 72, 37, 51, 1, 81,
+		45, 435, 7, 36, 57, 86, 81, 72 };
 
 	printf("%d\n", maxDonations(donations, sizeof(donations)/sizeof(int)));
 }
 
 //Definitions
 int maxDonations(int donations[], int count) {
-	dp = (int*)malloc(sizeof(count) * sizeof(int));
+	int* dp = (int*)malloc(count * sizeof(int));
 	int i, sum = 0;
+	
 	for (i = 0; i < count-1 ; i++) {	// 첫번째 집이 포함되는 경우
 		dp[i] = donations[i];
 		if (i > 0) dp[i] = Max(dp[i], dp[i-1]);
@@ -52,7 +54,9 @@ int maxDonations(int donations[], int count) {
 		if (i > 1) dp[i] = Max(dp[i], dp[i - 2] + donations[i + 1]);
 		sum = max(sum, dp[i]);
 	}
+
 	free(dp);
+
 	return sum;
 }
 
