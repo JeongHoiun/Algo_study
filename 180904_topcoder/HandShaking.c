@@ -21,7 +21,7 @@ long count[10001];
 long countPerfect(int n);
 
 int main() {
-	int n = 8;
+	int n = 4;
 
 	printf("%ld\n", countPerfect(n));
 }
