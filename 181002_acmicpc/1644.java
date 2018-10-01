@@ -3,9 +3,9 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
+//https://www.acmicpc.net/problem/1644
 public class Main {
 
 	int sumOfPrime(int n){
@@ -15,7 +15,7 @@ public class Main {
 		LinkedList<Integer> list = new LinkedList<Integer>();
 		boolean[] arr = new boolean[n+1];
 		
-		
+		arr[1] = true;
 		for(int i=2;i<=n;i++) {
 			if(arr[i] == true ) continue;
 			
